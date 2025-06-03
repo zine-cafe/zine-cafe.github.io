@@ -1,1 +1,1 @@
-# zine-cafe-website
+# Zine.Café
