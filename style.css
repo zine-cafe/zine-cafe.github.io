@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
+
+:root{ /* Global Variables */
+    /* --global-background-color: #4b331f;
+    --navbar-background-color: #7a9e71;
+    --navbar-text-color: rgb(0, 0, 0);
+    --navbar-hover-color: #baffb0;
+    --section-background-color: #F1E0C5;
+    --section-accent-color: #d8c5a7;
+    --link-color: #DA667B; */
+
+    --global-background-color: #252525;
+    --navbar-background-color: #a8a8a8;
+    --navbar-text-color: rgb(0, 0, 0);
+    --navbar-hover-color: #f91272;
+    --section-background-color: #dadada;
+    --section-accent-color: #b7b7b7;
+    --link-color: #f91272;
+
+    /* rgb(255, 255, 204)rgb(102, 51, 0)rgb(255, 255, 51) */
+}
+
+.banner {
+    width: 100%;
+    max-height: 180px;
+    margin-bottom: 1rem;
+}
+
+.section{
+    background-color: var(--section-background-color);
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.section-accent{
+    background-color: var(--section-accent-color);
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+
+h1, h2, h3 {
+    margin-top: 0.5rem;
+}
+
+a {
+    color: var(--link-color);
+}
+
+ul{
+    text-align: left;
+}
+
+body{
+    width: 90%;
+    background-color: var(--global-background-color);
+    margin: 1rem auto; /* margin with 2 values sets top&bottom and left&right*/
+    max-width: 60rem;
+    font-family: "Jersey 20", sans-serif;
+    font-size: 1rem;
+}
+
+nav{
+    text-align: center;
+    width: 100%;
+    background-color: var(--navbar-background-color);
+
+    ul{
+        text-align: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    li{
+        display: inline-block;
+        /* margin: 0 3%; */
+        padding: 0.5rem 0;
+        width: 19%;  /* 19.589% is max */
+        a{
+            color: var(--navbar-text-color);
+            text-decoration: none;
+        }
+    }
+
+    li:hover{
+        background-color: var(--navbar-hover-color);
+    }
+
+    @media screen and (max-width: 500px) {
+        li{
+          float: none;
+          padding: 0.3em 0;
+          margin: auto;
+          display: block;
+          width: 95%;
+          text-align: left; /* If you want the text to be left-aligned on small screens */
+        }
+      }
+
+}
+
+.column{
+    flex: 50%; 
+    text-align: center;
+}
