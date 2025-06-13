@@ -1,29 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
 
 :root{ /* Global Variables */
-    /* --global-background-color: #4b331f;
-    --navbar-background-color: #7a9e71;
+    --global-background-color: #4b331f;
+    --navbar-background-color: #8cba81;
     --navbar-text-color: rgb(0, 0, 0);
     --navbar-hover-color: #baffb0;
     --section-background-color: #F1E0C5;
-    --section-accent-color: #d8c5a7;
-    --link-color: #DA667B; */
+    --section-accent-color: #fff1da;
+    --link-color: #DA667B;
 
-    --global-background-color: #252525;
+    /* --global-background-color: #252525;
     --navbar-background-color: #a8a8a8;
     --navbar-text-color: rgb(0, 0, 0);
     --navbar-hover-color: #f91272;
     --section-background-color: #dadada;
     --section-accent-color: #b7b7b7;
-    --link-color: #f91272;
+    --link-color: #f91272; */
+    
     --navlink-width: 19%;
+    --navlink-text-size: 1.2rem;
 
-    /* rgb(255, 255, 204)rgb(102, 51, 0)rgb(255, 255, 51) */
 }
 
 .banner {
     width: 100%;
     max-height: 180px;
+    margin-bottom: 1rem;
+}
+
+.graphic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 40rem;
     margin-bottom: 1rem;
 }
 
@@ -38,7 +48,6 @@
     margin: 1rem 0;
     padding: 1rem;
 }
-
 
 h1, h2, h3 {
     margin-top: 0.5rem;
@@ -56,9 +65,9 @@ body{
     width: 90%;
     background-color: var(--global-background-color);
     margin: 1rem auto; /* margin with 2 values sets top&bottom and left&right*/
-    max-width: 60rem;
+    max-width: 55rem;
     font-family: "Jersey 20", sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 nav{
@@ -73,7 +82,7 @@ nav{
     
     a{
         display: inline-block;
-        font-size: 1rem;
+        font-size: var(--navlink-text-size);
         width: var(--navlink-width);  /* 19.589% is max */
         color: var(--navbar-text-color);
         text-decoration: none;
@@ -91,7 +100,7 @@ nav{
         vertical-align: middle;
 
         .dropbtn{
-            font-size: 1rem;
+            font-size: var(--navlink-text-size);
             border: none;
             outline: none;
             color: var(--navbar-text-color);
@@ -131,7 +140,7 @@ nav{
     }
 
     /* Turn navbar into a column when screen is less than 500 px */
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 540px) {
         flex-direction: column;
         
         a,.dropdown{
