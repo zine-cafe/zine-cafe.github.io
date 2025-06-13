@@ -64,43 +64,101 @@ nav{
     text-align: center;
     width: 100%;
     background-color: var(--navbar-background-color);
-
-    ul{
-        text-align: center;
-        list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    
+    a{
+        display: inline-block;
+        font-size: 1rem;
+        width: var(--navlink-width);  /* 19.589% is max */
+        color: var(--navbar-text-color);
+        text-decoration: none;
+        padding: 0.5rem 0;
         margin: 0;
-        padding: 0;
+        vertical-align: middle;
     }
     
-    li{
+    .dropdown{
+        overflow: hidden;
         display: inline-block;
-        /* margin: 0 3%; */
-        padding: 0.5rem 0;
-        width: 19%;  /* 19.589% is max */
-        a{
+        padding: 0.43rem 0;
+        margin: 0;
+        width: var(--navlink-width);
+        vertical-align: middle;
+
+        .dropbtn{
+            font-size: 1rem;
+            border: none;
+            outline: none;
             color: var(--navbar-text-color);
-            text-decoration: none;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
         }
     }
 
-    li:hover{
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        margin-top: 0.3rem;
+        background-color: var(--navbar-background-color);
+        min-width: 6.5rem;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+
+        a {
+            float: none;
+            color: var(--navbar-text-color);
+            padding: 0.3rem;
+            margin: 0;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            width: 6.5rem;
+        }
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    a:hover, .dropdown:hover{
         background-color: var(--navbar-hover-color);
     }
 
-    @media screen and (max-width: 500px) {
-        li{
+    /* Turn navbar into a column when screen is less than 500 px */
+    @media screen and (max-width: 520px) {
+        flex-direction: column;
+        
+        a,.dropdown{
           float: none;
-          padding: 0.3em 0;
+          padding: 0.3em;
           margin: auto;
-          display: block;
           width: 95%;
           text-align: left; /* If you want the text to be left-aligned on small screens */
+          .dropbtn{
+            padding: 0;
+          }
         }
-      }
+    }
 
 }
 
 .column{
     flex: 50%; 
     text-align: center;
+}
+
+.centered-flexbox{
+    display: flex; 
+    justify-content: center;
+}
+
+.history-image{
+    flex: 50%;
+    max-width: 50%;
+    margin: 0.7rem;
 }

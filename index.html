@@ -12,6 +12,7 @@
     <meta name="description" content="" /> 
     <title>zine café</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/e5ff15fe6e.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -20,13 +21,20 @@
     
     <!-- Nav bar -->
     <nav>
-        <ul>
-        <li><a href="/">HOME</a></li>
-        <li><a href="/about.html">ABOUT</a></li>
-        <li><a href="/resources.html">RESOURCES</a></li>
-        <li><a href="/library.html">LIBRARY</a></li>
-        <li><a href="/get-involved.html">GET INVOLVED</a></li>
-        </ul>
+        <a href="/">HOME</a>
+        <a href="/about.html">ABOUT US</a>
+        <a href="/resources.html">RESOURCES</a>
+        <a href="/library.html">ZINE LIBRARY</a>
+        <div class="dropdown">
+            <button class="dropbtn">MORE
+                <img src="/assets/downarrow.png" style="width: 0.9rem;" alt="Dropdown arrow.">
+            </button>
+            <div class="dropdown-content">
+                <a href="/contact-us.html">CONTACT US</a>
+                <a href="/get-involved.html">GET INVOLVED</a>
+                <a href="/">PRINT YOUR ZINE</a>
+            </div>
+        </div>
     </nav>
 
     <div class="section">
@@ -36,7 +44,7 @@
             <p>zines (pronounced zeens) are small-run, self-published works driven by passion, not profit. artistic, political, or educational, zines can take on any subject, and anyone can create one!</p>
         </div>
         <img class="banner" src="assets/banner-image.jpg" alt="">
-        <h3 style="text-align: center; margin-bottom: 0;">try our</h3>
+        <h2 style="text-align: center; margin-bottom: 0;">try our</h2>
         <div style="display: flex;">
             <div class="column">
                 <h2><a href="/resources.html">educator resources</a></h2>
