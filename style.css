@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
 
 :root{ /* Global Variables */
-    --global-background-color: #4b331f;
+    /* --global-background-color: #4b331f;
     --navbar-background-color: #8cba81;
     --navbar-text-color: rgb(0, 0, 0);
     --navbar-hover-color: #baffb0;
     --section-background-color: #F1E0C5;
     --section-accent-color: #fff1da;
-    --link-color: #DA667B;
+    --link-color: #DA667B; */
 
-    /* --global-background-color: #252525;
+    --global-background-color: #252525;
     --navbar-background-color: #a8a8a8;
     --navbar-text-color: rgb(0, 0, 0);
     --navbar-hover-color: #f91272;
     --section-background-color: #dadada;
     --section-accent-color: #b7b7b7;
-    --link-color: #f91272; */
+    --link-color: #f91272;
     
     --navlink-width: 19%;
     --navlink-text-size: 1.2rem;
@@ -40,7 +40,7 @@
 .section{
     background-color: var(--section-background-color);
     margin: 1rem 0;
-    padding: 1rem;
+    padding: 1rem 2rem;
 }
 
 .section-accent{
@@ -51,6 +51,7 @@
 
 h1, h2, h3 {
     margin-top: 0.5rem;
+    text-align: center;
 }
 
 a {
@@ -115,7 +116,7 @@ nav{
         position: absolute;
         margin-top: 0.3rem;
         background-color: var(--navbar-background-color);
-        min-width: 6.5rem;
+        width: 10.45rem;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
 
@@ -127,7 +128,7 @@ nav{
             text-decoration: none;
             display: block;
             text-align: left;
-            width: 6.5rem;
+            width: 9.85rem;
         }
     }
 
@@ -158,17 +159,24 @@ nav{
 }
 
 .column{
-    flex: 50%; 
+    margin:auto;
     text-align: center;
 }
 
-.centered-flexbox{
+.center-insides{
     display: flex; 
     justify-content: center;
 }
 
-.history-image{
+.flex-image{
     flex: 50%;
     max-width: 50%;
     margin: 0.7rem;
+}
+
+.centered-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
