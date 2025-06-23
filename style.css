@@ -1,21 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
 
 :root{ /* Global Variables */
+
+    /* Cafe theme */
     /* --global-background-color: #4b331f;
-    --navbar-background-color: #8cba81;
+    --navbar-background-color: #c0e7e2;
     --navbar-text-color: rgb(0, 0, 0);
-    --navbar-hover-color: #baffb0;
-    --section-background-color: #F1E0C5;
-    --section-accent-color: #fff1da;
+    --navbar-hover-color: #d7fdf8;
+    --section-background-color: #fff1db;
+    --section-light-background-color: #fff6e7;
+    --section-accent-color: #d7fdf8;
     --link-color: #DA667B; */
 
-    --global-background-color: #252525;
+    /* Grey theme */
+    /* --global-background-color: #252525;
     --navbar-background-color: #a8a8a8;
     --navbar-text-color: rgb(0, 0, 0);
     --navbar-hover-color: #f91272;
     --section-background-color: #dadada;
     --section-accent-color: #b7b7b7;
     --link-color: #f91272;
+    --colorful-background: #ea89b1;
+    --text-color:rgb(0, 0, 0); */
+
+    /* Black theme */
+    --global-background-color: #252525;
+    --navbar-background-color: #181818;
+    --navbar-text-color: rgb(255, 255, 255);
+    --navbar-hover-color: #f91272;
+    --section-background-color: #181818;
+    --section-accent-color: #946faa;
+    --link-color: #f91272;
+    --colorful-background: #ea89b1;
+    --text-color:rgb(255, 255, 255);
     
     --navlink-width: 19%;
     --navlink-text-size: 1.2rem;
@@ -65,10 +82,13 @@ ul{
 body{
     width: 90%;
     background-color: var(--global-background-color);
+    background-image: url(assets/tile4.png);
+    background-attachment: fixed;
     margin: 1rem auto; /* margin with 2 values sets top&bottom and left&right*/
     max-width: 55rem;
     font-family: "Jersey 20", sans-serif;
     font-size: 1.2rem;
+    color:var(--text-color);
 }
 
 nav{
@@ -180,3 +200,97 @@ nav{
     margin-right: auto;
     width: 50%;
 }
+
+
+
+/* --------- Database Styling ----------- */
+
+.row {
+    margin: 3rem auto;
+    padding: 1rem;
+    width: 90%;
+    text-align: center;
+    background-color: var(--section-light-background-color);
+    border: 2px solid #878787;
+}
+
+.titleSection{
+    display: flex;
+    padding: 1rem;
+
+    .title{
+        width: 80%;
+        font-size: xx-large;
+        text-align: left;
+    }
+    .type{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+
+        .typebutton{
+            font-family: "Jersey 20", sans-serif;
+            font-size: large;
+            margin: 0.2rem;
+            margin-right: 1rem;
+            background-color: var(--navbar-background-color); /* Green */
+            border: outset;
+            border-color: black;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            
+        }
+        .typebutton:hover {
+            background-color: var(--navbar-hover-color);
+        }
+    }
+}
+
+.taglist {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 0.5rem;
+    padding: 0rem;
+    align-items: center;
+    overflow: scroll;
+    background-color: var(--section-accent-color);
+}
+
+.tagbutton {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+    font-family: "Jersey 20", sans-serif;
+    font-size: large;
+}
+
+.noteDropDown{
+    display: inline-block;
+    width: 0.9rem;
+    height: 100%;
+    margin-left: auto;
+    padding-right: 1rem;
+    rotate:90deg;
+}
+
+.rotateDropDown {
+    rotate: 0deg;
+}
+
+/* initially hidden */
+.notesection{
+    text-align: left;
+    margin: auto;
+    padding: 0.1rem 0.5rem;
+    width: 88%;
+    background-color: var(--section-accent-color);
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+
