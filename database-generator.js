@@ -33,32 +33,40 @@ $.get( "assets/database.csv", function(CSVdata) {
         titleSection.appendChild(title);
 
         
-        // ----- MIDDLE SECTION - tags
-        const tags = createDiv("taglist");
+        // ----- MIDDLE SECTION - tag bar
+
+        const tagBar = createDiv("tagbar");
+
+        const taglist = createDiv("taglist");
 
         // for each tag, make a button
         const splitTags = parseTags(obj["Tags"]);
         if (splitTags != ""){
         splitTags.forEach(tag => {
-            tags.innerHTML+="<button class='tagbutton'>"+tag+"</button>";
+            taglist.innerHTML+="<button class='tagbutton'>"+tag+"</button>";
         });
         }
+
+        tagBar.appendChild(taglist);
         
         // add dropdown arrow if there are notes
         if(obj["Notes/Context"]!="")
         {
-        const dropdownArrow = document.createElement("input");
-        dropdownArrow.type = "image";
-        dropdownArrow.classList.add("noteDropDown");
-        dropdownArrow.src = "/assets/downarrow.png";
-        dropdownArrow.alt = "Dropdown arrow."
-        dropdownArrow.dataset.target = obj["ID"]+"dropdownContent"
-        // add dropdown to end of the tags section
-        tags.innerHTML+=dropdownArrow.outerHTML
+            const dropdownDiv = createDiv("dropdowndiv");
+            const dropdownArrow = document.createElement("input");
+            dropdownArrow.type = "image";
+            dropdownArrow.classList.add("noteDropDownButton");
+            dropdownArrow.src = "/assets/leftarrow.png";
+            dropdownArrow.alt = "Dropdown arrow."
+            dropdownArrow.dataset.target = obj["ID"]+"dropdownContent"
+            dropdownDiv.appendChild(dropdownArrow);
+            
+            // add dropdown div to the tags section
+            tagBar.appendChild(dropdownDiv);
         }
         
         // add tags section to row
-        row.appendChild(tags);
+        row.appendChild(tagBar);
 
         // ----- LOWER SECTION - notes
         const notesection = createDiv("notesection");
@@ -76,26 +84,17 @@ $.get( "assets/database.csv", function(CSVdata) {
 
 
 function createDiv(classname) {
-let div = document.createElement("div");
-div.className = classname;
-return div;
+    let div = document.createElement("div");
+    div.className = classname;
+    return div;
 }
 
 function parseTags(tags){
-return tags.split(', ');
-}
-
-function dropdown(event) {
-let btnText = event.target; // element that was clicked
-let parent = btnText.parentElement; // its parent
-let grandparent = parent.parentElement; // its parent
-let siblings = grandparent.children; // collection of siblings
-var notes = siblings[2]; // 3rd element in the grandparent container
-notes.className = "hiddennotesection"
-}
+    return tags.split(', ');
+} 
 
 function attachButtonListeners() {
-const dropdownbtns = document.querySelectorAll(".noteDropDown")
+const dropdownbtns = document.querySelectorAll(".noteDropDownButton")
 // for each button...
 dropdownbtns.forEach(button => {
     // ...add an event listener that shows its target (found by id)
@@ -106,7 +105,12 @@ dropdownbtns.forEach(button => {
     // if found, show the notes section
     if (dropdownContent) {
         dropdownContent.classList.toggle('show');
-        this.classList.toggle('rotateDropDown');
+        if (this.src.includes("leftarrow")){
+            this.src = "/assets/downarrow.png";
+        }
+        else if(this.src.includes("downarrow")) {
+            this.src = "/assets/leftarrow.png";
+        }
     }
     })
 });

@@ -29,8 +29,9 @@
     --navbar-text-color: rgb(255, 255, 255);
     --navbar-hover-color: #f91272;
     --section-background-color: #181818;
-    --section-accent-color: #946faa;
-    --link-color: #f91272;
+    --section-accent-color: #40375a;
+    --section-light-color: #AA8BBB;
+    --link-color: #FF579D;
     --colorful-background: #ea89b1;
     --text-color:rgb(255, 255, 255);
     
@@ -40,8 +41,9 @@
 }
 
 .banner {
+    box-sizing: border-box;
     width: 100%;
-    max-height: 180px;
+    border: 10px solid black;
     margin-bottom: 1rem;
 }
 
@@ -225,6 +227,7 @@ nav{
     }
     .type{
         width: 20%;
+        min-width: 7.5rem;
         display: flex;
         flex-direction: column;
 
@@ -233,10 +236,9 @@ nav{
             font-size: large;
             margin: 0.2rem;
             margin-right: 1rem;
-            background-color: var(--navbar-background-color); /* Green */
             border: outset;
             border-color: black;
-            color: black;
+            background-color: var(--section-light-color);
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -248,43 +250,48 @@ nav{
     }
 }
 
-.taglist {
+.tagbar{
     display: flex;
+    justify-content: space-between;
     width: 90%;
     margin: auto;
     margin-top: 0.5rem;
     padding: 0rem;
     align-items: center;
-    overflow: scroll;
+    overflow:hidden;
     background-color: var(--section-accent-color);
+}
+
+.taglist {
+    display: flex;
+    overflow: scroll;
 }
 
 .tagbutton {
     display: inline-block;
-    margin: 0.5rem 1rem;
+    margin: 0.5rem 0.8rem;
     font-family: "Jersey 20", sans-serif;
     font-size: large;
 }
 
-.noteDropDown{
+.noteDropDownDiv {
+    display: inline-block;
+}
+
+.noteDropDownButton{
     display: inline-block;
     width: 0.9rem;
     height: 100%;
-    margin-left: auto;
-    padding-right: 1rem;
-    rotate:90deg;
-}
-
-.rotateDropDown {
-    rotate: 0deg;
+    margin: 0.7rem 1rem;
 }
 
 /* initially hidden */
 .notesection{
     text-align: left;
     margin: auto;
-    padding: 0.1rem 0.5rem;
-    width: 88%;
+    padding: 0.1rem 1rem;
+    box-sizing: border-box;
+    width: 90%;
     background-color: var(--section-accent-color);
     display: none;
 }
