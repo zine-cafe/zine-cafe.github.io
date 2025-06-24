@@ -24,15 +24,17 @@
     --text-color:rgb(0, 0, 0); */
 
     /* Black theme */
+    /* f91272 */
     --global-background-color: #252525;
     --navbar-background-color: #181818;
+    --navbar-dropdown-color: #292929;
     --navbar-text-color: rgb(255, 255, 255);
-    --navbar-hover-color: #f91272;
+    --navbar-hover-color: #f91272; 
     --section-background-color: #181818;
     --section-accent-color: #40375a;
     --section-light-color: #AA8BBB;
     --link-color: #FF579D;
-    --colorful-background: #ea89b1;
+    --row-background-color: #1b2036;
     --text-color:rgb(255, 255, 255);
     
     --navlink-width: 19%;
@@ -137,7 +139,7 @@ nav{
         display: none;
         position: absolute;
         margin-top: 0.3rem;
-        background-color: var(--navbar-background-color);
+        background-color: var(--navbar-dropdown-color);
         width: 10.45rem;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -168,7 +170,8 @@ nav{
         
         a,.dropdown{
           float: none;
-          padding: 0.3em;
+          padding: 0.4rem;
+          padding-left: 1rem;
           margin: auto;
           width: 95%;
           text-align: left; /* If you want the text to be left-aligned on small screens */
@@ -208,11 +211,11 @@ nav{
 /* --------- Database Styling ----------- */
 
 .row {
-    margin: 3rem auto;
+    margin: 2.5rem auto;
     padding: 1rem;
     width: 90%;
     text-align: center;
-    background-color: var(--section-light-background-color);
+    background-color: var(--row-background-color);
     border: 2px solid #878787;
 }
 
@@ -226,16 +229,18 @@ nav{
         text-align: left;
     }
     .type{
+        box-sizing: border-box;
         width: 20%;
-        min-width: 7.5rem;
+        min-width: 7.8rem;
+        margin: 0.5rem;
+        padding-right: 1rem;
         display: flex;
         flex-direction: column;
 
         .typebutton{
             font-family: "Jersey 20", sans-serif;
             font-size: large;
-            margin: 0.2rem;
-            margin-right: 1rem;
+            margin: 0.3rem;
             border: outset;
             border-color: black;
             background-color: var(--section-light-color);
@@ -245,10 +250,11 @@ nav{
             
         }
         .typebutton:hover {
-            background-color: var(--navbar-hover-color);
+            background-color: white;
         }
     }
 }
+
 
 .tagbar{
     display: flex;
@@ -260,6 +266,7 @@ nav{
     align-items: center;
     overflow:hidden;
     background-color: var(--section-accent-color);
+    border-radius: 15px;
 }
 
 .taglist {
@@ -272,6 +279,10 @@ nav{
     margin: 0.5rem 0.8rem;
     font-family: "Jersey 20", sans-serif;
     font-size: large;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: #ffffff;
+    border-color: #b3b3b3;
 }
 
 .noteDropDownDiv {
@@ -293,6 +304,7 @@ nav{
     box-sizing: border-box;
     width: 90%;
     background-color: var(--section-accent-color);
+    border-radius: 0 0 15px 15px;
     display: none;
 }
 
@@ -300,4 +312,36 @@ nav{
     display: block;
 }
 
+
+@media screen and (max-width: 540px) {
+    .titleSection{
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 0;
+        .type{
+            width: auto;
+            min-width: 0;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 0;
+            justify-content: center;
+        }
+        .title{
+            width: auto;
+        }
+    }
+    .taglist{
+        flex-wrap: wrap;
+        .tagbutton{
+            margin: 0.5rem
+        }
+    }
+    .tagbar{
+        align-items: flex-end;
+        width:100%
+    }
+    .notesection{
+        width: 100%;
+    }
+}
 

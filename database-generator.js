@@ -105,11 +105,13 @@ dropdownbtns.forEach(button => {
     // if found, show the notes section
     if (dropdownContent) {
         dropdownContent.classList.toggle('show');
-        if (this.src.includes("leftarrow")){
+        if (this.src.includes("leftarrow")){ // displaying
             this.src = "/assets/downarrow.png";
+            this.parentElement.parentElement.style["border-radius"] = "15px 15px 0 0";
         }
-        else if(this.src.includes("downarrow")) {
+        else if(this.src.includes("downarrow")) { // hiding
             this.src = "/assets/leftarrow.png";
+            this.parentElement.parentElement.style["border-radius"] = "15px";
         }
     }
     })
