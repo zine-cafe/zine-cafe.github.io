@@ -12,8 +12,8 @@
     <meta name="description" content="" /> 
     <title>zine café</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="navbar.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/navbar.js"></script>
   </head>
 
   <body>
@@ -26,13 +26,60 @@
     
 
     <!-- import a CSV parser -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
-    <script src="database-generator.js"></script>
+    <script src="js/jquery.csv.min.js"></script>
+    <script src="js/list.min.js"></script>
+    <script src="js/database-generator.js"></script>
 
     <!-- resource database -->
     <div class="section">
       <h1>resource database</h1>
-      <div id="table">
+      <div class="resourceContainer">
+
+        <!-- filter window -->
+        <div id="filterWindow">
+          <h2>filters</h2>
+          <input type="image" id="closeFilterWindowArrow" src='/assets/leftarrow.png' alt='Close filter window arrow.'/>
+          <h3>- types -</h3>
+          <div id="mastertypebuttons">
+            <div class="list"></div>
+          </div>
+          <h3>- tags -</h3>
+          <div id="mastertagbuttons">
+            <div class="list"></div>
+          </div>
+        </div>
+
+        <!-- resource entry table -->
+        <div id="table">
+          <div class="table-header">
+            <button id="openFilterWindowButton">filters</button>
+            <input type="search" id="search-field" placeholder="Search...">
+          </div>
+          <div class="list"></div>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- template item -->
+    <div style="display: none;">
+      <div id='template-item' data-Priority="-1" data-ID="-1" class='row'>
+        <div class='titleSection'>
+          <div class='Type'>
+          </div>
+          <div class='title'>
+            <a href='' target="_blank" class='URL Title'>name</a>
+          </div>
+        </div>
+        <div class='tagbar'>
+          <div class='Tags'>
+          </div>
+          <div class='Dropdown-Visibility'>
+          </div>
+        </div>
+        <div id="1" class='noteID notesection'>
+          <p class='Notes/Context'></p>
+        </div>
       </div>
     </div>
     

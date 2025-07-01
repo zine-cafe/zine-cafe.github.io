@@ -24,8 +24,7 @@
     --text-color:rgb(0, 0, 0); */
 
     /* Black theme */
-    /* f91272 */
-    --global-background-color: #252525;
+    --global-background-color: #debcff;
     --navbar-background-color: #181818;
     --navbar-dropdown-color: #292929;
     --navbar-text-color: rgb(255, 255, 255);
@@ -86,7 +85,7 @@ ul{
 body{
     width: 90%;
     background-color: var(--global-background-color);
-    background-image: url(assets/tile4.png);
+    background-image: url(assets/backgroundtile.png);
     background-attachment: fixed;
     margin: 1rem auto; /* margin with 2 values sets top&bottom and left&right*/
     max-width: 55rem;
@@ -211,9 +210,10 @@ nav{
 /* --------- Database Styling ----------- */
 
 .row {
-    margin: 2.5rem auto;
+    margin: 0.5rem auto 2rem auto;
     padding: 1rem;
-    width: 90%;
+    width: 95%;
+    box-sizing: border-box;
     text-align: center;
     background-color: var(--row-background-color);
     border: 2px solid #878787;
@@ -228,7 +228,7 @@ nav{
         font-size: xx-large;
         text-align: left;
     }
-    .type{
+    .Type{
         box-sizing: border-box;
         width: 20%;
         min-width: 7.8rem;
@@ -236,25 +236,24 @@ nav{
         padding-right: 1rem;
         display: flex;
         flex-direction: column;
-
-        .typebutton{
-            font-family: "Jersey 20", sans-serif;
-            font-size: large;
-            margin: 0.3rem;
-            border: outset;
-            border-color: black;
-            background-color: var(--section-light-color);
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            
-        }
-        .typebutton:hover {
-            background-color: white;
-        }
     }
 }
 
+.typebutton{
+    font-family: "Jersey 20", sans-serif;
+    font-size: large;
+    margin: 0.3rem;
+    border: outset;
+    border-color: black;
+    background-color: var(--section-light-color);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    
+}
+.typebutton:hover {
+    background-color: white;
+}
 
 .tagbar{
     display: flex;
@@ -269,20 +268,25 @@ nav{
     border-radius: 15px;
 }
 
-.taglist {
+/* tagslist */
+.Tags { 
     display: flex;
-    overflow: scroll;
+    flex-wrap: wrap;
+    padding: 8px;
 }
 
 .tagbutton {
     display: inline-block;
-    margin: 0.5rem 0.8rem;
+    margin: 0.3rem 0.8rem;
     font-family: "Jersey 20", sans-serif;
     font-size: large;
     border-radius: 10px;
     border-style: solid;
     background-color: #ffffff;
     border-color: #b3b3b3;
+}
+.tagbutton:hover{
+    background-color: #878787;
 }
 
 .noteDropDownDiv {
@@ -343,5 +347,83 @@ nav{
     .notesection{
         width: 100%;
     }
+    .resourceContainer{
+        flex-direction: column;
+        #table.small{
+            width: 100%;
+        }
+        #filterWindow{
+            width: 100%;
+        }
+    }
 }
 
+
+.resourceContainer{
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    background-color: #FF579D;
+}
+
+#table {
+    width: 100%;
+}
+#table.small {
+    width: 70%;
+}
+
+#filterWindow{
+    width: 20rem;
+    height: fit-content;
+    background-color: var(--section-accent-color);
+    position: relative;
+    display: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#filterWindow.show{
+    display: block;
+}
+
+#closeFilterWindowArrow{
+    width: 0.9rem; 
+    position: absolute; 
+    top: 1rem; 
+    left: 87%;
+}
+
+#openFilterWindowButton{
+    font-family: "Jersey 20", sans-serif;
+    font-size: larger;
+    margin: 1.3rem;
+    border: outset;
+    border-color: black;
+    background-color: var(--section-light-color);
+    text-align: center;
+    text-decoration: none;
+    display: none;
+}
+
+#openFilterWindowButton.show{
+    display: block;
+}
+
+#openFilterWindowButton:hover{
+    background-color: white;
+}
+
+.table-header{
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding: 0;
+}
+
+#search-field{
+    height: 2rem;
+    width: 15rem;
+    margin: 1rem;
+}
