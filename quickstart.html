@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="js/quickstart.js"></script>
   </head>
 
   <body>
@@ -25,5 +26,53 @@
 
 
     <div class="section">
-        <h1>Quick Start</h1>
+        <h1>quick start</h1>
+
+        <div class="question" id="start">
+          <div class="answers">
+            <a href="#" class="qsButton toSection largeText" data-next="teacher">I'm a <b>teacher</b></a>
+            <a href="#" class="qsButton toSection largeText" data-next="organizer">I'm an <b>organizer</b></a>
+            <a href="create.html" class="qsButton centered">I want to <b>make zines</b> myself</a>
+          </div>
+        </div>
+
+        <div class="question" id="teacher">
+          <div class="answers">
+            <a href="resources.html?type=Curricula" class="qsButton">I'm looking for <b>general curriculum</b> using zines</a>
+            <a href="resources.html?type=Lesson%20Plan" class="qsButton">I'm looking for <b>specific lesson plans</b> using zines</a>
+            <a href="resources.html?type=Worksheets%2FHandouts" class="qsButton">I'm looking for <b>worksheets and handouts</b> with zines</a>
+            <a href="resources.html?tag=Zine%20History" class="qsButton">I want to learn about the <b>history of zines</b></a>
+            <a href="resources.html?tag=Youth%2DCentered" class="qsButton">Show me resources focused on <b>youth</b></a>
+            <a href="resources.html?tag=Education" class="qsButton">Show me everything having to do with <b>education</b></a>
+          </div>
+          <button class="goBackButton">Go Back</button>
+        </div>
+
+        <div class="question" id="organizer">
+          <div class="answers">
+            <a href="resources.html?type=Digital%20Zine%20Collection%2FLibrary" class="qsButton">I'm looking for <b>zine libraries and collections</b></a>
+            <a href="resources.html?type=Workshops" class="qsButton">I'm looking for <b>workshop guides</b></a>
+            <a href="#" class="qsButton toSection" data-next="socialjustice">I'm looking for a <b>specific topic within social justice</b></a>
+            <a href="resources.html?tag=Zine%20History" class="qsButton">I want to learn about the <b>history of zines</b></a>  
+          </div>
+          <button class="goBackButton">Go Back</button>
+        </div>
+
+        <div class="question" id="socialjustice">
+          <div class="answers">
+            <a href="resources.html?tag=Activism" class="qsButton">Activism</a>
+            <a href="resources.html?tag=Abolition" class="qsButton">Abolition</a>
+            <a href="resources.html?tag=BIPOC" class="qsButton">BIPOC</a>
+            <a href="resources.html?tag=Climate%20Justice" class="qsButton">Climate Justice</a>
+            <a href="resources.html?tag=COVID%2D19" class="qsButton">COVID-19</a>
+            <a href="resources.html?tag=Feminism" class="qsButton">Feminism</a>
+            <a href="resources.html?tag=Immigration" class="qsButton">Immigration</a>
+            <a href="resources.html?tag=Indigeneity" class="qsButton">Indigeneity</a>
+            <a href="resources.html?tag=LGBTQ%2B" class="qsButton">LGBTQ+</a>
+            <a href="resources.html?tag=Mutual%20Aid" class="qsButton">Mutual Aid</a>
+            <a href="resources.html?tag=Social%20Justice%2DBroadly" class="qsButton centered">Show me all social justice focused resources</a>  
+          </div>
+          <button class="goBackButton">Go Back</button>
+        </div>
+
     </div>

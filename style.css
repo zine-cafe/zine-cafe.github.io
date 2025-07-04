@@ -36,8 +36,14 @@
     --row-background-color: #1b2036;
     --text-color:rgb(255, 255, 255);
     
-    --navlink-width: 19%;
+    --navlink-width: 30%;
     --navlink-text-size: 1.2rem;
+
+    --typebutton-background-color: var(--section-light-color);
+    --typebutton-background-hover: rgb(236, 201, 255);
+
+    --alt-link-color: #e0a7ff;
+    --button-border-color: #b3b3b3;
 
 }
 
@@ -164,7 +170,7 @@ nav{
     }
 
     /* Turn navbar into a column when screen is less than 500 px */
-    @media screen and (max-width: 540px) {
+    @media screen and (max-width: 550px) {
         flex-direction: column;
         
         a,.dropdown{
@@ -251,8 +257,11 @@ nav{
     display: inline-block;
     
 }
+.typebutton.clicked{
+    background-color: var(--typebutton-background-hover);
+}
 .typebutton:hover {
-    background-color: white;
+    background-color: var(--typebutton-background-hover);
 }
 
 .tagbar{
@@ -282,11 +291,8 @@ nav{
     font-size: large;
     border-radius: 10px;
     border-style: solid;
-    background-color: #ffffff;
-    border-color: #b3b3b3;
-}
-.tagbutton:hover{
-    background-color: #878787;
+    background-color: white;
+    border-color: var(--button-border-color);
 }
 
 .noteDropDownDiv {
@@ -349,7 +355,7 @@ nav{
     }
     .resourceContainer{
         flex-direction: column;
-        #table.small{
+        .table.small{
             width: 100%;
         }
         #filterWindow{
@@ -367,10 +373,10 @@ nav{
     background-color: #FF579D;
 }
 
-#table {
+.table {
     width: 100%;
 }
-#table.small {
+.table.small {
     width: 70%;
 }
 
@@ -415,15 +421,120 @@ nav{
     background-color: white;
 }
 
-.table-header{
+.search-area{
     display: flex;
     align-items: center;
     margin-top: 0.5rem;
     padding: 0;
 }
 
+.table-header{
+    display: flex;
+    flex-direction: column;
+}
+
 #search-field{
     height: 2rem;
-    width: 15rem;
+    width: 18rem;
+    margin: 1rem;
+}
+
+.currentFilters{
+    display: flex;
+    margin: 1rem;
+}
+
+.previewbutton{
+    display: none;
+}
+
+.togglebutton{
+    align-items: center;
+    padding: 0;
+    margin: 0.4rem;
+    p{
+        margin:0.2rem;
+    }
+}
+
+.togglebutton.clicked{
+    display: flex;
+    .buttonCloseIcon{
+        display: block;
+    }
+    p{
+        margin:0.3rem;
+        margin-left: 0;
+    }
+}
+
+.buttonCloseIcon{
+    display: none;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 0.3rem;
+}
+
+/* styled like tagbutton, but won't be included in listeners */
+#clearFiltersButton {
+    display: inline-block;
+    margin: 0.3rem 0.8rem;
+    font-family: "Jersey 20", sans-serif;
+    font-size: large;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: #ffffff;
+    border-color: #b3b3b3;
+}
+#clearFiltersButton:hover{
+    background-color: #878787;
+}
+
+.question{
+    display: none;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.question.show{
+    display: flex;
+}
+
+.answers{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.qsButton{
+    display: inline-block;
+    text-align: center;
+    margin: 1.5rem 15% 1.5rem 15%;
+    font-size: x-large;
+    color: var(--alt-link-color);
+    background-color: var(--section-accent-color);
+    padding: 1rem;
+    border: var(--button-border-color) 2px outset;
+    b{
+        color: white;
+    }
+}
+
+.qsButton.largeText{
+    font-size: xx-large;
+    margin: 1.5rem 10% 1.5rem 10%;
+}
+
+.qsButton.centered{
+    margin: auto;
+}
+
+.toSection{
+    color: var(--link-color);
+}
+
+.goBackButton {
+    height: 1.3rem; 
+    align-self: flex-end;
     margin: 1rem;
 }

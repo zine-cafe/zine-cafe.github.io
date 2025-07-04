@@ -28,7 +28,7 @@
     <!-- import a CSV parser -->
     <script src="js/jquery.csv.min.js"></script>
     <script src="js/list.min.js"></script>
-    <script src="js/database-generator.js"></script>
+    <script src="js/database-generator.js" type="module"></script>
 
     <!-- resource database -->
     <div class="section">
@@ -39,6 +39,7 @@
         <div id="filterWindow">
           <h2>filters</h2>
           <input type="image" id="closeFilterWindowArrow" src='/assets/leftarrow.png' alt='Close filter window arrow.'/>
+          <button id="clearFiltersButton">clear all filters</button>
           <h3>- types -</h3>
           <div id="mastertypebuttons">
             <div class="list"></div>
@@ -50,12 +51,20 @@
         </div>
 
         <!-- resource entry table -->
-        <div id="table">
+        <div class="table">
           <div class="table-header">
-            <button id="openFilterWindowButton">filters</button>
-            <input type="search" id="search-field" placeholder="Search...">
+            <div class="search-area">
+              <button id="openFilterWindowButton">filters</button>
+              <input type="search" id="search-field" placeholder="Search...">
+            </div>
+            <div class="currentFilters">
+              <div id="currenttypebuttons"><div class="list"></div></div>
+              <div id="currenttagbuttons"><div class="list"></div></div>
+            </div>
           </div>
-          <div class="list"></div>
+          <div id="table">
+            <div class="list"></div>
+          </div>
         </div>
 
       </div>
