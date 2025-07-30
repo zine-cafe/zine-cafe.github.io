@@ -41,9 +41,12 @@
 
     --typebutton-background-color: var(--section-light-color);
     --typebutton-background-hover: rgb(236, 201, 255);
+    --button-text-color: black;
+    --default-tag-button-color: white;
 
     --alt-link-color: #e0a7ff;
-    --button-border-color: #b3b3b3;
+    --tagbutton-border-color: #b3b3b3;
+    --typebutton-border-color: black;
 
     --section-second-accent-color: #213351;
 
@@ -256,8 +259,9 @@ nav{
     font-size: large;
     margin: 0.3rem;
     border: outset;
-    border-color: black;
+    border-color: var(--typebutton-border-color);
     background-color: var(--section-light-color);
+    color: var(--button-text-color);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -297,8 +301,9 @@ nav{
     font-size: large;
     border-radius: 10px;
     border-style: solid;
-    background-color: white;
-    border-color: var(--button-border-color);
+    background-color: var(--default-tag-button-color);
+    color: var(--button-text-color);
+    border-color: var(--tagbutton-border-color);
 }
 
 .noteDropDownDiv {
@@ -329,46 +334,7 @@ nav{
 }
 
 
-@media screen and (max-width: 540px) {
-    .titleSection{
-        flex-direction: column-reverse;
-        align-items: center;
-        padding: 0;
-        .type{
-            width: auto;
-            min-width: 0;
-            flex-direction: row;
-            flex-wrap: wrap;
-            padding: 0;
-            justify-content: center;
-        }
-        .title{
-            width: auto;
-        }
-    }
-    .taglist{
-        flex-wrap: wrap;
-        .tagbutton{
-            margin: 0.5rem
-        }
-    }
-    .tagbar{
-        align-items: flex-end;
-        width:100%
-    }
-    .notesection{
-        width: 100%;
-    }
-    .resourceContainer{
-        flex-direction: column;
-        .table.small{
-            width: 100%;
-        }
-        #filterWindow{
-            width: 100%;
-        }
-    }
-}
+
 
 
 .resourceContainer{
@@ -414,6 +380,7 @@ nav{
     border: outset;
     border-color: black;
     background-color: var(--section-light-color);
+    color:var(--button-text-color);
     text-align: center;
     text-decoration: none;
     display: none;
@@ -429,6 +396,7 @@ nav{
 
 .search-area{
     display: flex;
+    flex-direction: row;
     align-items: center;
     margin-top: 0.5rem;
     padding: 0;
@@ -441,7 +409,8 @@ nav{
 
 #search-field{
     height: 2rem;
-    width: 18rem;
+    max-width: 18rem;
+    width:90%;
     margin: 1rem;
 }
 
@@ -489,8 +458,9 @@ nav{
     font-size: large;
     border-radius: 10px;
     border-style: solid;
-    background-color: #ffffff;
-    border-color: #b3b3b3;
+    background-color: white;
+    color:var(--button-text-color);
+    border-color: var(--tagbutton-border-color);
 }
 #clearFiltersButton:hover{
     background-color: #878787;
@@ -520,7 +490,7 @@ nav{
     color: var(--alt-link-color);
     background-color: var(--section-accent-color);
     padding: 1rem;
-    border: var(--button-border-color) 2px outset;
+    border: var(--tagbutton-border-color) 2px outset;
     b{
         color: white;
     }
@@ -559,8 +529,85 @@ nav{
     }
 }
 
+.mini-section.column{
+    width: 40%;
+    ul{
+        padding-left: 1.5rem;
+    }
+}
+
 .space-evenly{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+.centered-list{
+    max-width: 30rem; 
+    margin: auto;
+    padding: 0;
+}
+
+
+
+/* ----------- For Mobile -------------- */
+
+@media screen and (max-width: 540px) {
+    .section{
+        padding: 16px 16px;
+    }
+    .search-area{
+        flex-direction: column;
+        align-items: start;
+        #search-field{
+            align-self: center;
+        }
+    }
+    .titleSection{
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 0;
+        .Type{
+            width: auto;
+            min-width: 0;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 0;
+            justify-content: center;
+        }
+        .title{
+            width: auto;
+            font-size: x-large;
+        }
+    }
+    .tagbutton{
+        font-size: medium;
+        margin: 5px;
+    }
+    .typebutton{
+        font-size: medium;
+        margin: 5px;
+    }
+    .tagbar{
+        align-items: flex-end;
+        width:100%
+    }
+    .notesection{
+        width: 100%;
+    }
+    .resourceContainer{
+        flex-direction: column;
+        .table.small{
+            width: 100%;
+        }
+        #filterWindow{
+            width: 100%;
+        }
+    }
+    .mini-section.column{
+        width: 100%;
+        ul{
+            padding-left: 1.5rem;
+        }
+    }
 }
