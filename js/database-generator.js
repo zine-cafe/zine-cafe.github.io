@@ -4,7 +4,7 @@ import { makeMasterButtons, clickFilterButton, makeTagButtons } from "./tag-butt
 loadDatabase();
 
 function loadDatabase() {
-    $.get( "assets/database.csv", function(CSVdata) {
+    $.get( "assets/csvfiles/database.csv", function(CSVdata) {
         // CSVdata is populated with the file contents, then turn into objects
         var data = $.csv.toObjects(CSVdata);
         var existingTypes = [];

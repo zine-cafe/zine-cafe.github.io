@@ -548,11 +548,17 @@ nav{
     padding: 0;
 }
 
+.mobileColumn{
+    flex-direction: row;
+}
 
 
 /* ----------- For Mobile -------------- */
 
 @media screen and (max-width: 540px) {
+    .mobileColumn{
+        flex-direction: column;
+    }
     .section{
         padding: 16px 16px;
     }

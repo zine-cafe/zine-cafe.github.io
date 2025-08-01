@@ -1,6 +1,6 @@
 
 export function makeMasterButtons(existingTags, existingTypes, dataTable) {
-    $.get( "assets/tagcolors.csv", function(CSVdata) {
+    $.get( "assets/csvfiles/tagcolors.csv", function(CSVdata) {
         // CSVdata is populated with the file contents, then turn into objects
         var data = $.csv.toObjects(CSVdata)[0];
         makeButtonList(existingTags, data, "tag");
