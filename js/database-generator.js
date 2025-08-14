@@ -3,6 +3,8 @@ import { makeMasterButtons, clickFilterButton, makeTagButtons } from "./tag-butt
 // ----- parses csv into html for resources database ------
 loadDatabase();
 
+
+
 function loadDatabase() {
     $.get( "assets/csvfiles/database.csv", function(CSVdata) {
         // CSVdata is populated with the file contents, then turn into objects
@@ -17,11 +19,33 @@ function loadDatabase() {
             var [buttonString, typesFound] = makeTagButtons(entry["Type"],"type",existingTypes);
             entry["Type"] = buttonString; 
             existingTypes = typesFound; 
+
+            
+            if(entry["Audience"]!=""){
+                var [buttonString, tagsFound] = makeTagButtons(entry["Audience"],"tag",existingTags);
+                entry["Audience"] = buttonString; // replace names with html buttons
+                existingTags = tagsFound; // record what tags have been found so far
+            }
+
+            if(entry["Age Group"]!=""){
+                var [buttonString, tagsFound] = makeTagButtons(entry["Age Group"],"tag",existingTags);
+                entry["Age Group"] = buttonString; // replace names with html buttons
+                existingTags = tagsFound; // record what tags have been found so far
+            }
     
             if(entry["Tags"]!=""){ // only make tags if any are present
                 var [buttonString, tagsFound] = makeTagButtons(entry["Tags"],"tag",existingTags);
                 entry["Tags"] = buttonString; // replace names with html buttons
-                existingTags = tagsFound; // record what tags were present
+                existingTags = tagsFound; // record what tags have been found so far
+            }
+
+            entry["Tags"] = entry["Tags"] + entry["Audience"] + entry["Age Group"];
+
+            if(entry["Favorite"]=="yes"||entry["Favorite"]=="Yes"||entry["Favorite"]=="Y"){
+                entry["Favorite"] = "display:block;";
+                entry["Priority"] = "0";
+            } else {
+                entry["Favorite"] = "";
             }
     
             // create ID for note sections
@@ -44,6 +68,7 @@ function loadDatabase() {
         var options = {
             valueNames: ["Title","Type","Tags","Notes/Context", "Dropdown-Visibility",
                 {data: ["Priority","ID"]},
+                {name:"Favorite",attr:"style"},
                 {name:"noteID", attr:"id"},
                 {name:"URL", attr:"href"},
                 {name:"tagbar", attr:"style"}

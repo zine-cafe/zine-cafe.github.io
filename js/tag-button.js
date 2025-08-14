@@ -18,12 +18,18 @@ function getURLParams(){
     const type = urlParams.get('type');
 
     if(tag!=null){
-        console.log("detected tag - "+tag);
-        clickFilterButton(decodeURIComponent(tag), "tag");
+        var tagStr = decodeURIComponent(tag);
+        var allTags = tagStr.split(",");
+        allTags.forEach(tag => {
+            clickFilterButton(tag, "tag");
+        })
     } 
     if (type!=null) {
-        console.log("detected type - "+type);
-        clickFilterButton(decodeURIComponent(type), "type");
+        var typeStr = decodeURIComponent(type);
+        var allTypes = typeStr.split(",");
+        allTypes.forEach(type => {
+            clickFilterButton(type, "type");
+        })
     }
 }
 
@@ -60,7 +66,7 @@ function makeButtonList(existingTags, tagColors, tagOrType) {
             {name:"id", attr:"id"},
             {name:"color", attr:"style"}
         ],
-        item: "<span><button class='"+tagOrType+"button togglebutton id name color'><img src='./assets/x.png' class='buttonCloseIcon'></img><p class='text'></p></button></span>"
+        item: "<span><button class='"+tagOrType+"button togglebutton id name color'><img src='./assets/x.png' class='buttonCloseIcon' alt='Deselect tag button.'></img><p class='text'></p></button></span>"
     };
 
     var previewTagOptions = {
@@ -69,11 +75,12 @@ function makeButtonList(existingTags, tagColors, tagOrType) {
             {name:"name", attr:"name"},
             {name:"id", attr:"id"}
         ],
-        item: "<span><button class='"+tagOrType+"button togglebutton previewbutton id name'><img src='./assets/x.png' class='buttonCloseIcon'></img><p class='text'></p></button></span>"
+        item: "<span><button class='"+tagOrType+"button togglebutton previewbutton id name'><img src='./assets/x.png' class='buttonCloseIcon' alt='Deselect tag button.'></img><p class='text'></p></button></span>"
     };
 
     var tagTable = new List("master"+tagOrType+"buttons",masterTagOptions,masterTagInfo);
     var tagPreview = new List("current"+tagOrType+"buttons",previewTagOptions,previewTagInfo);
+
     tagTable.sort("text");
     tagPreview.sort("text");
 }
@@ -91,7 +98,6 @@ export function makeTagButtons(tags, buttontype, existingTags){
         }
     });
     
-    //console.log(htmlstring);
     return [htmlstring, existingTags];
 } 
 
@@ -181,10 +187,9 @@ export function attachTagButtonListeners(dataTable, tagOrType) {
 export function clickFilterButton(filterName, tagOrType){
     const buttonContainer = document.getElementById("master"+tagOrType+"buttons").children[0];
     const buttons = Array.from(buttonContainer.children);
-    console.log(buttons)
     buttons.forEach(buttonSpan => {
         let button = buttonSpan.children[0];
-        if(button.id.includes(filterName)){
+        if(button.id == (filterName+"MasterButton")){
             button.click();
         }
     });

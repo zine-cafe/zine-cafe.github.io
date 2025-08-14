@@ -7,7 +7,6 @@
     <title>resource database | zine café</title>
     <link rel="stylesheet" href="style.css" />
     <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/navbar.js"></script>
   </head>
 
   <body>
@@ -48,8 +47,8 @@
     <!-- resource database -->
     <div class="section">
       <h1>resource database</h1>
+      <div class="mini-section" style="margin-top: 20px;"><h4 style="margin-bottom: 0.8rem; margin-top: 0.8rem;">psst! don't know where to start? use our <a href="./quickstart.html">quickstart guide</a>!</h4></div>
       <div class="resourceContainer">
-
         <!-- filter window -->
         <div id="filterWindow">
           <h2>filters</h2>
@@ -68,7 +67,6 @@
         <!-- resources table -->
         <div class="table">
           <div class="table-header">
-            <div class="mini-section" style="margin-top: 20px; margin-bottom: 0px;"><h3>psst! don't know where to start? use our <a href="./quickstart.html">quickstart guide</a>!</h3></div>
             <div class="search-area">
               <button id="openFilterWindowButton">filters</button>
               <input type="search" id="search-field" placeholder="Search...">
@@ -84,11 +82,17 @@
         </div>
 
       </div>
+      <div>
+        <p style="font-size: var(--small-size); text-align: center;">This resource database links to content created and maintained by others. We share these resources to uplift their work, but we are not responsible for or affiliated with the external content. Please contact us if you notice anything that doesn’t feel right!</p>
+      </div>
     </div>
     
     <!-- template item -->
     <div style="display: none;">
       <div id='template-item' data-Priority="-1" data-ID="-1" class='row'>
+        <div class="recommendedbanner Favorite">
+          <h4>recommended resource!</h4>
+        </div>
         <div class='titleSection'>
           <div class='Type'>
           </div>

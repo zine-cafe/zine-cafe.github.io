@@ -2,27 +2,6 @@
 
 :root{ /* Global Variables */
 
-    /* Cafe theme */
-    /* --global-background-color: #4b331f;
-    --navbar-background-color: #c0e7e2;
-    --navbar-text-color: rgb(0, 0, 0);
-    --navbar-hover-color: #d7fdf8;
-    --section-background-color: #fff1db;
-    --section-light-background-color: #fff6e7;
-    --section-accent-color: #d7fdf8;
-    --link-color: #DA667B; */
-
-    /* Grey theme */
-    /* --global-background-color: #252525;
-    --navbar-background-color: #a8a8a8;
-    --navbar-text-color: rgb(0, 0, 0);
-    --navbar-hover-color: #f91272;
-    --section-background-color: #dadada;
-    --section-accent-color: #b7b7b7;
-    --link-color: #f91272;
-    --colorful-background: #ea89b1;
-    --text-color:rgb(0, 0, 0); */
-
     /* Black theme */
     --global-background-color: #debcff;
     --navbar-background-color: #181818;
@@ -31,24 +10,32 @@
     --navbar-hover-color: #f91272; 
     --section-background-color: #181818;
     --section-accent-color: #40375a;
+    --section-second-accent-color: #213351;
     --section-light-color: #AA8BBB;
+    --alert-color: #C796E8;
     --link-color: #FF579D;
     --row-background-color: #1b2036;
     --text-color:rgb(255, 255, 255);
     
     --navlink-width: 30%;
-    --navlink-text-size: 1.2rem;
+    --navlink-text-size: 1.4rem;
 
     --typebutton-background-color: var(--section-light-color);
     --typebutton-background-hover: rgb(236, 201, 255);
     --button-text-color: black;
-    --default-tag-button-color: white;
+    --default-tag-button-color: #d1d1d1;
 
     --alt-link-color: #e0a7ff;
     --tagbutton-border-color: #b3b3b3;
     --typebutton-border-color: black;
 
-    --section-second-accent-color: #213351;
+
+    --h1-size: 2.5rem;
+    --h2-size: 2rem;
+    --h3-size: 1.8rem;
+    --h4-size: 1.6rem;
+    --p-size: 1.5rem;
+    --small-size: 1.3rem;
 
 }
 
@@ -84,12 +71,30 @@
     padding: 1rem;
 }
 
+
 h1, h2, h3 {
     margin-top: 0.5rem;
     text-align: center;
 }
 
+h1 {
+    font-size: var(--h1-size);
+}
+
+h2{
+    font-size: var(--h2-size);
+}
+
+h3 {
+    font-size: var(--h3-size);
+}
+
+h4 {
+    font-size: var(--h4-size);
+}
+
 a {
+    font-size: inherit;
     color: var(--link-color);
 }
 
@@ -105,7 +110,7 @@ body{
     margin: 1rem auto; /* margin with 2 values sets top&bottom and left&right*/
     max-width: 55rem;
     font-family: "Jersey 20", sans-serif;
-    font-size: 1.2rem;
+    font-size: var(--p-size);
     color:var(--text-color);
 }
 
@@ -179,7 +184,7 @@ nav{
     }
 
     /* Turn navbar into a column when screen is less than 500 px */
-    @media screen and (max-width: 550px) {
+    @media screen and (max-width: 600px) {
         flex-direction: column;
         
         a,.dropdown{
@@ -207,10 +212,14 @@ nav{
     justify-content: center;
 }
 
+.vertical-center{
+    align-items: center;
+}
+
 .flex-image{
     flex: 50%;
     max-width: 50%;
-    margin: 0.7rem;
+    margin: 1rem;
 }
 
 .centered-image{
@@ -218,6 +227,12 @@ nav{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+.ripped-edge-image{
+    flex: 60%;
+    max-width: 60%;
+    margin: 0;
 }
 
 
@@ -240,7 +255,7 @@ nav{
 
     .title{
         width: 80%;
-        font-size: xx-large;
+        font-size: var(--h1-size);
         text-align: left;
     }
     .Type{
@@ -256,7 +271,7 @@ nav{
 
 .typebutton{
     font-family: "Jersey 20", sans-serif;
-    font-size: large;
+    font-size: var(--p-size);
     margin: 0.3rem;
     border: outset;
     border-color: var(--typebutton-border-color);
@@ -298,7 +313,7 @@ nav{
     display: inline-block;
     margin: 0.3rem 0.8rem;
     font-family: "Jersey 20", sans-serif;
-    font-size: large;
+    font-size: var(--small-size);
     border-radius: 10px;
     border-style: solid;
     background-color: var(--default-tag-button-color);
@@ -375,7 +390,7 @@ nav{
 
 #openFilterWindowButton{
     font-family: "Jersey 20", sans-serif;
-    font-size: larger;
+    font-size: var(--h3-size);
     margin: 1.3rem;
     border: outset;
     border-color: black;
@@ -398,7 +413,7 @@ nav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 0.5rem;
+    margin-bottom: -1rem;
     padding: 0;
 }
 
@@ -408,10 +423,11 @@ nav{
 }
 
 #search-field{
-    height: 2rem;
+    height: 2.5rem;
     max-width: 18rem;
     width:90%;
     margin: 1rem;
+    font-size: var(--small-size);
 }
 
 .currentFilters{
@@ -455,7 +471,7 @@ nav{
     display: inline-block;
     margin: 0.3rem 0.8rem;
     font-family: "Jersey 20", sans-serif;
-    font-size: large;
+    font-size: var(--p-size);
     border-radius: 10px;
     border-style: solid;
     background-color: white;
@@ -486,7 +502,7 @@ nav{
     display: inline-block;
     text-align: center;
     margin: 1.5rem 15% 1.5rem 15%;
-    font-size: x-large;
+    font-size: var(--h3-size);
     color: var(--alt-link-color);
     background-color: var(--section-accent-color);
     padding: 1rem;
@@ -497,7 +513,7 @@ nav{
 }
 
 .qsButton.largeText{
-    font-size: xx-large;
+    font-size: var(--h2-size);
     margin: 1.5rem 10% 1.5rem 10%;
 }
 
@@ -512,7 +528,17 @@ nav{
 .goBackButton {
     height: 1.3rem; 
     align-self: flex-end;
+    display: flex;
+    font-family: "Jersey 20" ;
     margin: 1rem;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: var(--h4-size);
+    color: var(--alt-link-color);
+    background-color: var(--section-accent-color);
+    border: var(--tagbutton-border-color) 2px outset;
 }
 
 /* create page */
@@ -552,12 +578,28 @@ nav{
     flex-direction: row;
 }
 
+.recommendedbanner {
+    display: none;
+    text-align: left; 
+    background-color: var(--alert-color); 
+    margin: 0; 
+    padding: 10px;
+    border-radius: 15px;
+    h4{
+        margin: 0;
+        color: black;
+    }
+}
+
 
 /* ----------- For Mobile -------------- */
 
-@media screen and (max-width: 540px) {
-    .mobileColumn{
+@media screen and (max-width: 650px) {
+    .center-insides{
         flex-direction: column;
+        img{
+            max-width: 100%;
+        }
     }
     .section{
         padding: 16px 16px;
@@ -573,6 +615,7 @@ nav{
         flex-direction: column-reverse;
         align-items: center;
         padding: 0;
+        margin-top: 7px;
         .Type{
             width: auto;
             min-width: 0;
@@ -583,15 +626,15 @@ nav{
         }
         .title{
             width: auto;
-            font-size: x-large;
+            font-size: var(--h1-size);
         }
     }
     .tagbutton{
-        font-size: medium;
+        font-size: var(--small-size);
         margin: 5px;
     }
     .typebutton{
-        font-size: medium;
+        font-size: var(--p-size);
         margin: 5px;
     }
     .tagbar{
@@ -616,4 +659,6 @@ nav{
             padding-left: 1.5rem;
         }
     }
+
+
 }
